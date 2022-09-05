@@ -1,15 +1,17 @@
 // To parse this JSON data, do
 //
-//     final homeModel = homeModelFromJson(jsonString);
+//     final homeResponseModel = homeResponseModelFromJson(jsonString);
 
 import 'dart:convert';
 
-HomeModel homeModelFromJson(String str) => HomeModel.fromJson(json.decode(str));
+HomeResponseModel homeResponseModelFromJson(String str) =>
+    HomeResponseModel.fromJson(json.decode(str));
 
-String homeModelToJson(HomeModel data) => json.encode(data.toJson());
+String homeResponseModelToJson(HomeResponseModel data) =>
+    json.encode(data.toJson());
 
-class HomeModel {
-  HomeModel({
+class HomeResponseModel {
+  HomeResponseModel({
     required this.success,
     required this.data,
     required this.message,
@@ -19,7 +21,8 @@ class HomeModel {
   List<Datum> data;
   String message;
 
-  factory HomeModel.fromJson(Map<String, dynamic> json) => HomeModel(
+  factory HomeResponseModel.fromJson(Map<String, dynamic> json) =>
+      HomeResponseModel(
         success: json["success"],
         data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
         message: json["message"],

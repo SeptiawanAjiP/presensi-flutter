@@ -1,17 +1,17 @@
 // To parse this JSON data, do
 //
-//     final savePresensiModel = savePresensiModelFromJson(jsonString);
+//     final savePresensiResponseModel = savePresensiResponseModelFromJson(jsonString);
 
 import 'dart:convert';
 
-SavePresensiModel savePresensiModelFromJson(String str) =>
-    SavePresensiModel.fromJson(json.decode(str));
+SavePresensiResponseModel savePresensiResponseModelFromJson(String str) =>
+    SavePresensiResponseModel.fromJson(json.decode(str));
 
-String savePresensiModelToJson(SavePresensiModel data) =>
+String savePresensiResponseModelToJson(SavePresensiResponseModel data) =>
     json.encode(data.toJson());
 
-class SavePresensiModel {
-  SavePresensiModel({
+class SavePresensiResponseModel {
+  SavePresensiResponseModel({
     required this.success,
     required this.data,
     required this.message,
@@ -21,8 +21,8 @@ class SavePresensiModel {
   Data data;
   String message;
 
-  factory SavePresensiModel.fromJson(Map<String, dynamic> json) =>
-      SavePresensiModel(
+  factory SavePresensiResponseModel.fromJson(Map<String, dynamic> json) =>
+      SavePresensiResponseModel(
         success: json["success"],
         data: Data.fromJson(json["data"]),
         message: json["message"],
@@ -54,7 +54,7 @@ class Data {
   String longitude;
   DateTime tanggal;
   String masuk;
-  String pulang;
+  dynamic pulang;
   DateTime createdAt;
   DateTime updatedAt;
 
